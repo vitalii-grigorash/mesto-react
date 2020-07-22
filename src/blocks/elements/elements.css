@@ -1,0 +1,31 @@
+@import url(./__element/elements__element.css);
+@import url(./__image/elements__image.css);
+@import url(./__group/elements__group.css);
+@import url(./__place/elements__place.css);
+@import url(./__like-container/elements__like-container.css);
+@import url(./__like-button/elements__like-button.css);
+@import url(./__like-count/elements__like-count.css);
+@import url(./__trash-button/elements__trash-button.css);
+.elements {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(auto, 1fr);
+    max-width: 882px;
+    margin: 50px auto 0;
+    grid-row-gap: 20px;
+    grid-column-gap: 18px;
+}
+@media screen and (max-width: 780px) {
+    .elements {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(auto, 1fr);
+        max-width: 580px; 
+    }
+}
+@media screen and (max-width: 525px) {
+    .elements {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(auto, 1fr);
+        max-width: 282px; 
+    }
+}

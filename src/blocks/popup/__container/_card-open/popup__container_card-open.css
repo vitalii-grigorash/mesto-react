@@ -1,0 +1,8 @@
+.popup__container_card-open {
+    border-radius: 0;
+    color: #ffffff;
+    background-color: transparent;
+    padding: 0;
+    max-width: 75vw;
+    max-height: 75vh;
+}

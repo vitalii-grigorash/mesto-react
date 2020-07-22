@@ -1,0 +1,7 @@
+.content {
+}
+@media screen and (max-width: 950px) {
+    .content {
+        padding: 0 15px 0;
+    }
+}

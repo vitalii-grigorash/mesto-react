@@ -1,0 +1,13 @@
+.popup__container_card-remove {
+    min-width: 430px;
+}
+@media screen and (max-width: 545px) {
+    .popup__container_card-remove {
+        min-width: 370px;
+    }
+}
+@media screen and (max-width: 460px) {
+    .popup__container_card-remove {
+        min-width: 250px;
+    }
+}

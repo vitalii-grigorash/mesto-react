@@ -1,0 +1,8 @@
+.profile__heading-info {
+    display: flex;
+}
+@media screen and (max-width: 670px) {
+    .profile__heading-info {
+        justify-content: center;
+    }
+}
