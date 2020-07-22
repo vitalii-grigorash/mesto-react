@@ -48,19 +48,3 @@ class PopupWithForm extends React.Component {
 }
   
 export default PopupWithForm;
-
-// После отрисовки карточек, посмотреть, как ведёт себя этот попап удаления карточки!!!!!!!!
-
-//             <section className="popup popup_type_card-remove">
-
-//                 <div className="popup__container popup__container_card-remove">
-
-//                     <h2 className="popup__heading">Вы уверены?</h2>
-
-//                     <button className="popup__close-button" type="button"></button>
-
-//                     <button className="popup__submit-button popup__submit-button_card-remove">Да</button>
-
-//                 </div>
-
-//             </section>

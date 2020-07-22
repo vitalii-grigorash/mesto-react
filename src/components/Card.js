@@ -16,7 +16,7 @@ class Card extends React.Component {
 
             <img className="elements__image" alt={card.name} src={card.link} onClick={this.handleClick} />
 
-            <button className="elements__trash-button"></button>
+            <button className="elements__trash-button elements__trash-button_active"></button>
 
             <div className="elements__group">
 
