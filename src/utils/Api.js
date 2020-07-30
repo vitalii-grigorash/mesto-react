@@ -62,28 +62,30 @@ export class Api {
         .then(this._returnErrorResponse)
     }
 
-    removeCard (cardId) {
-        return fetch(`${this._baseUrl}/cards/${cardId}`, {
-            method: 'DELETE',
-            headers: this._headers
-        })
-        .then(this._returnErrorResponse)
+    removeCard (cardId, isOwn) {
+        if (!isOwn) {
+            return fetch(`${this._baseUrl}/cards/${cardId}`, {
+                method: 'DELETE',
+                headers: this._headers
+            })
+            .then(this._returnErrorResponse)
+        }
     }
 
-    addLike (cardId) {
-        return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
-            method: 'PUT',
-            headers: this._headers
-        })  
-        .then(this._returnErrorResponse) 
-    }
-
-    removeLike (cardId) {
-        return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
-            method: 'DELETE',
-            headers: this._headers
-        })
-        .then(this._returnErrorResponse)
+    changeLikeCardStatus (cardId, isLiked) {
+        if (isLiked) {
+            return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
+                method: 'PUT',
+                headers: this._headers
+            })  
+            .then(this._returnErrorResponse) 
+        } else {
+            return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
+                method: 'DELETE',
+                headers: this._headers
+            })
+            .then(this._returnErrorResponse)    
+        }
     }
 }
 

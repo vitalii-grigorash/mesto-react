@@ -4,8 +4,20 @@ import Main from './Main';
 import Footer from './Footer';
 import PopupWithForm from './PopupWithForm';
 import ImagePopup from './ImagePopup';
+import { api } from '../utils/Api';
+import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
 function App() {
+
+  const [currentUser, setCurrentUser] = useState({}); 
+  
+  React.useEffect (() => {
+    api.getUserInfo()
+    .then((userData) => {
+      setCurrentUser(userData);
+    })
+    .catch((err) => console.log(`Ошибка: ${err}`));
+  });
 
   const [isEditProfilePopupOpen, setEditProfilePopupOpen] = useState(false);
   const [isAddPlacePopupOpen, setAddPlacePopupOpen] = useState(false);
@@ -40,11 +52,13 @@ function App() {
     setSelectedCard({
       isImageOpen: false,
       link: '',
-      name: '',
+      name: ''
     });
   }
 
   return (
+    
+    <CurrentUserContext.Provider value={currentUser}>
 
     <div className="page">
 
@@ -164,7 +178,9 @@ function App() {
         isOpen={selectedCard.isImageOpen}
       />
       
-    </div>  
+    </div>
+
+    </CurrentUserContext.Provider> 
   );
 }
 
