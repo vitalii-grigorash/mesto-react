@@ -1,30 +1,43 @@
 import React from 'react';
 
-class PopupWithForm extends React.Component {
-    render() {
-      return (
+function PopupWithForm (props) {
+
+    const { 
+        onSubmit,
+        name,
+        isOpen,
+        onClose,
+        title,
+        children,
+        submit,
+        isLoading
+    } = props;
+
+    return (
+
         <div
-            className={`popup popup_type_${this.props.name} ${this.props.isOpen && 'popup_opened'}`}
+            className={`popup popup_type_${name} ${isOpen && 'popup_opened'}`}
         >
 
             <div 
-                className={`popup__container popup__container_type_${this.props.name}`}
+                className={`popup__container popup__container_type_${name}`}
             >
 
                 <button
                     type='button'
                     className='popup__close-button'
-                    onClick={this.props.onClose}
+                    onClick={onClose}
                 ></button>
 
                 <form
-                    className={`popup__forms popup__forms_${this.props.name}`}
+                    className={`popup__forms popup__forms_${name}`}
+                    onSubmit={onSubmit}
                 >
 
-                    <h2 className="popup__heading">{this.props.title}</h2>
+                    <h2 className="popup__heading">{title}</h2>
 
                     
-                    {this.props.children}
+                    {children}
                     
 
                     <div className="popup__handlers">
@@ -33,7 +46,7 @@ class PopupWithForm extends React.Component {
                             type='submit'
                             className="popup__submit-button"
                         >
-                        {this.props.submit}
+                        {isLoading ? `Сохранение...` : submit}
                         </button>
 
                     </div>
@@ -43,8 +56,7 @@ class PopupWithForm extends React.Component {
             </div>
 
         </div>
-      );
-    }
+    );
 }
   
 export default PopupWithForm;

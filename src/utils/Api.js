@@ -33,7 +33,7 @@ export class Api {
             headers: this._headers,
             body: JSON.stringify({
                 name: formData.name,
-                about: formData.job
+                about: formData.about,
             })
         })
         .then(this._returnErrorResponse)
@@ -44,7 +44,7 @@ export class Api {
             method: 'PATCH',
             headers: this._headers,
             body: JSON.stringify({
-                avatar: formData.link
+                avatar: formData.avatar
             })
         })
         .then(this._returnErrorResponse)
