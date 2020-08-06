@@ -84,10 +84,10 @@ function handleCardDelete (card) {
     api.setUserInfo(userData)
     .then((res) => {
       setCurrentUser(res);
+      closeAllPopups();
     })
     .catch((err) => console.log(`Ошибка: ${err}`))
     .finally(() => setLoading(false));
-    closeAllPopups();
   }
 
   function handleUpdateAvatar (userData) {
@@ -95,10 +95,10 @@ function handleCardDelete (card) {
     api.setAvatar(userData)
     .then((res) => {
       setCurrentUser(res);
+      closeAllPopups();
     })
     .catch((err) => console.log(`Ошибка: ${err}`))
     .finally(() => setLoading(false));
-    closeAllPopups();
   }
 
   function handleAddPlaceSubmit (userData) {
@@ -106,10 +106,10 @@ function handleCardDelete (card) {
     api.addCard(userData)
     .then((res) =>{
       setCards([...cards, res]);
+      closeAllPopups();
     })
     .catch((err) => console.log(`Ошибка: ${err}`))
     .finally(() => setLoading(false));
-    closeAllPopups();
   }
 
   function closeAllPopups() {
